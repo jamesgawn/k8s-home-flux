@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gohelloworld-c
+  labels:
+    app: gohelloworld-c
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gohelloworld-c
+  template:
+    metadata:
+      labels:
+        app: gohelloworld-c
+    spec:
+      containers:
+        - name: nginx
+          image: jamesgawn/gohelloworld:latest
+          ports:
+            - containerPort: 8080
