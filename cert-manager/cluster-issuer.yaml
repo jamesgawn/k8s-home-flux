@@ -15,5 +15,5 @@ spec:
             region: eu-central-1
             accessKeyID: AKIA6IH3BM5DJM5ZLVX3
             secretAccessKeySecretRef:
-              name: prod-route53-credentials-secret
+              name: prod-route53-credentials
               key: home-secret-key
