@@ -25,8 +25,7 @@ metadata:
 ```
 2. Secure it using public key 
 ```bash
-kubeseal --format=yaml --cert=pub-sealed-secret-cert.pem \
-   < example-secret.yaml > example-secret-sealed.yaml
+kubeseal --format=yaml --cert=pub-sealed-secret-cert.pem < example-secret.yaml > example-secret-sealed.yaml
 ```
 
 You can obtain the public key with the following command:
