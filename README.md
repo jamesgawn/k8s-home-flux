@@ -2,6 +2,20 @@
 
 The repository for the flux configuration of my home kubernetes cluster. 
 
+## Bootstrapping Cluster
+_These steps assume you have already configured your .kube/config file to allow access to the cluster via the kubectl CLI._
+0. Install flux CLI
+```bash 
+curl -s https://toolkit.fluxcd.io/install.sh | sudo 
+```
+1. Set github personal access token for repository:
+```bash
+export GITHUB_TOKEN=INSERT_TOKEN_HERE
+```
+2. Configure cluster 
+```bash
+flux bootstrap github --personal --repository=flux-home --owner=jamesgawn --components-extra=image-reflector-controller,image-automation-controller
+```
 ## How to generate a new sealed secret
 
 1. Create the insecure secret file or using the template provided:
