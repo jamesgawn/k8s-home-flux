@@ -5,7 +5,7 @@ metadata:
   labels:
     app: gohelloworld-b
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: gohelloworld-b
