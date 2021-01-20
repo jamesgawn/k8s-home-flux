@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-dns01-prod"
+spec:
+  tls:
+    - hosts:
+        - helloworld1.home.gawn.uk
+        - helloworld2.home.gawn.uk
+      secretName: ingress-route53-dns-tls
+  rules:
+    - host: helloworld1.home.gawn.uk
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: gohelloworld-a
+                port:
+                  number: 80
+    - host: helloworld2.home.gawn.uk
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: gohelloworld-b
+                port:
+                  number: 80
