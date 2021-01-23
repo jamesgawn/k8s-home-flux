@@ -1,8 +1,38 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: GitRepository
+metadata:
+  name: flux-system
+  namespace: default
+spec:
+  gitImplementation: go-git
+  interval: 1m0s
+  ref:
+    branch: main
+  secretRef:
+    name: image-update-creds
+  url: ssh://git@github.com/jamesgawn/flux-home
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: image-update-creds
+  namespace: default
+spec:
+  encryptedData:
+    identity: AgAukliJdo32xG8IjaePI6Bn2GrjfJmLJifAJ96V815CZnzXY0wfhfuxeXRDoFaUVWaFoZYM+CDNYuhbnv0eDiWwLatujYsua6PGDBp6BlJDp4LDxA+3UvPMi+i41rv1poMOO96D6yDuJ9qV623X7na3ZFnmB39YBYxTGLIxIXuCBvG+KhUG5PERf+LvODmzBVJfXID77oNEsFvTjBwWu4HMnAmyMaJ1HRkcIpMQ0/bH/2IeAsKe2VM5Z8uRGg0mXvKRzF7XOwRrmlBkEIgzFAPJPkklfCTIvJZWIqd2JCYUuYGegeiYRF1t7QeyONFYM3jqMp0gL8JOcZ5+t2cT8S9Ao0XtjOHo42rJ9DRz/ukZoR9NxCYtG84FC4ZluGv2SgKit9Lbgp6+55m8WRvwg7vw4/8ZeJnCrOmPTTFmX7vJPJgWkjtNe7F5HlagpwM7TvUY+72m0ajV+lzY+TETDp2EtZB6OPV/lklFdSvmtlJ7Dtsi31l2np2SuE91U6CgMFWePx7YYVQY9+k4Lp0RkGOu0fLNxU7HqI8TEOCesIt/stmFqWu2rL1mSodCknvQFU0R/WBVSi9NaU/0KFjlSJaUL1vXxUl7Y52w+mCfn/3O5lVIQ9tovCJI0hxGkL2g6iKLzBAm7IwzLgyc54KWhkWpPS4GLFhbY9DGshGeZBtdRONAQztqsvONwgJZ4F99ILC2FloDu1GpSHElrYSuVvzQh9ECrKQprSelQUghSZByUmZW1bUttolcV/9aPJ6gyE8EasqzVIlEIrhztimpaS9dAQR6vNktbqJqkmwY/dKtqj+igcYdaf4D5PjxV6rMD1oG/3+b98xXu/nV1YPJM5rg0X/H1PcOSjAQFk5+s5tjD0stJ3aELT/xfjKOMJQybk4CXMnoCZz+6bojg8bYcekk2vU8ecjbcF3Pu5hAw1GKT2GoswCzH1Vd9BN0F7qX4UucxCvsO9W8lKLd2KSBZRpI1YsLYdU350EsVG+V0/jbR1bKujaNR1Y2XOQy+Azsqp3iHw==
+    identity.pub: AgAXi9DpUJTK+2U6zz5LiHt5MYq9Vg08xmks5GmPlm+Gca6NNOE2UAHnkjNVsAyvarlK29jJrPJ34HdxKXbmhOdPnjA5i54/a2cN+IxwcfzkidsWX3Vi9rfLnIHBvbSLSANt5cunwR8YpsuiCVQiW8Gh+1mLhSYGyWdXi1OhrbKx1T4szRJM8KjapxQHuVTMopFyaoptnldoXqmdsQFvNmMXirdK9o3W+eg2odSwVbbtMmpm0fAl87Gf22dLA/QmvnWgXD3NYJN+g3kKoVfyC+cUXvfT898gc/2IgSScAl7FSr6ELB7NSJwFyRe5O8wk0r0dwhtIJlc64gJp27CGLXMsnYZSvciBvC+zlJuGoAz6FNx1xhoT2bd9jrIwoUHjK7MpcrBQ8ugfhfpjoDPP1OWrfrLva8Fsgo5Dq+cg4ywq7tJ4OKUNJIMLoocLy+4J3vCZXM7wQ8FBaYP8SksR0hx2Y65MLMcZLUVyfdXVgQ/eq3WdPNCxCapQ7um8dnf/BALu0tLN3D3aBsYzeOBwisSO6zEN9zxP3j03itX5+ebKDviLa/MJROnIuI610kGoyfCBgmTVHOYEwEG6yaU7YSRVPm+HRMbKUY7GCeiGoX9/mr8g1ck68c9BvTiQgOpqdafjOiEiXa4417GRg6XPZpX7QhvOe+DHmkW2CFsli3LtHZHiYS1/sPWPaop2G0ndQH7Wr882RDFpjmqi1vCdXt4Egjlm7SqGC7mPixfYBdqsOchDNg6hz4QalbJdap9UR6s6h5w=
+  template:
+    metadata:
+      creationTimestamp: null
+      name: image-update-creds
+      namespace: default
+---
 apiVersion: image.toolkit.fluxcd.io/v1alpha1
 kind: ImageUpdateAutomation
 metadata:
   name: flux-system
-  namespace: flux-system
 spec:
   checkout:
     branch: main
