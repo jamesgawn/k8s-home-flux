@@ -9,10 +9,10 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1alpha1
 kind: ImagePolicy
 metadata:
-  name: gohelloworld
+  name: gohelloworld-a
 spec:
   imageRepositoryRef:
     name: gohelloworld
   policy:
     semver:
-      range: x.x.x
+      range: 1.x.x
