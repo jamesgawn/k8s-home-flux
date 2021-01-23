@@ -1,0 +1,18 @@
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImageRepository
+metadata:
+  name: gohelloworld
+spec:
+  image: ghcr.io/jamesgawn/gohelloworld
+  interval: 5m0s
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImagePolicy
+metadata:
+  name: gohelloworld
+spec:
+  imageRepositoryRef:
+    name: podinfo
+  policy:
+    semver:
+      range: >=1.0.0
