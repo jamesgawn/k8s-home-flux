@@ -16,3 +16,20 @@ spec:
   policy:
     semver:
       range: >=1.0.0
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImageUpdateAutomation
+metadata:
+  name: gohelloworld
+spec:
+  checkout:
+    branch: main
+    gitRepositoryRef:
+      name: flux-system
+  commit:
+    authorEmail: fluxcdbot@users.noreply.github.com
+    authorName: fluxcdbot
+    messageTemplate: '[ci skip] update image'
+  interval: 1m0s
+  update:
+    setters: {}
