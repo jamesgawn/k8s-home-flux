@@ -3,7 +3,6 @@ apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: GitRepository
 metadata:
   name: flux-system
-  namespace: default
 spec:
   gitImplementation: go-git
   interval: 1m0s
@@ -18,7 +17,6 @@ kind: SealedSecret
 metadata:
   creationTimestamp: null
   name: flux-system-image-update
-  namespace: default
 spec:
   encryptedData:
     identity: AgB6OtARi55FfpSKj/2L83UsO0bP/TtTbjDgV2IkN/p+oOoCEXmSU8ffbcXDcgGJcsSZkv7UtNDOKFeFp5/BVrt/3srzhGshxcJM9ZFekBn/PadsQd/pepiT/fy12iINOQIy3vhH2okkC3ZBSlUHYBEDckGO0pHVW3dEGbKYtQuC10iqbvfnfL/3/TWOJLXEXo/U0NTGZtaGBcgi2T7NA26ZMR+7tiY6Jbq5TAcQYaBJNh5WntbyKk0vgW+efTfC8Rbv2v5CONIObunbtv/VvJcqr/AQCv8e1Dz5SFMD/4stJv1u+vDeGrk3L0TOOR1Odq1ZDvWdaW77WFZSWOo84cl9ggIhlxJ4wLaH7QfOl4actToMyk9mkTUO5hYAfVVs8iUBV1z7oqCzWRgZHECT+yKqktrxxIGllb2eV0y1fsH4XOhaLuk8vLcyiK3KmiwpVMnJ/whtPSq/+FxIwaoROIcQpTVIsjYHvk+ev1KdgyIyQU9dsomp7R+3ZrXPkGqgYK7geABjVQYxrFRsi5WZ6RW3XqIAh6eJSeCqkYDD7CjJeIY6W5pq4g0w11R1ZqnqL4PXAAV4UASVogVDmnw1sW31Pr0ZiG4JD+VR0JzFyqtsLq/TTEF+Xuvz3xKaH++ZMardtRmWxoWZTVRrCWnevsbZYX5hxcTBp6mQ24+sIP8ypCCf6l+itUO3tm8tnCEJ4EpEWe2HOSZpaJ7wTUeFnBvkAgM2qhSqgKv96X/jlbR7uV1ozrGLfunxcUELQZFGLB+Ij1wiHOKl4hX+UoGdzGyfs12dGhe5RcZ70MqLFUVXAP0hcwrIso5CvR3sCd0ul/sK7XMlGnhTdX0ZDyozAP/xqqdgvXKlGQ==

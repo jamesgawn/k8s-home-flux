@@ -15,4 +15,4 @@ spec:
     name: gohelloworld
   policy:
     semver:
-      range: 1.x.x
+      range: x.x.x
