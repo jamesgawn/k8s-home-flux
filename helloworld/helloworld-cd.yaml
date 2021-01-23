@@ -2,6 +2,7 @@ apiVersion: image.toolkit.fluxcd.io/v1alpha1
 kind: ImageRepository
 metadata:
   name: gohelloworld
+  namespace: flux-system
 spec:
   image: ghcr.io/jamesgawn/gohelloworld
   interval: 5m0s
@@ -10,6 +11,7 @@ apiVersion: image.toolkit.fluxcd.io/v1alpha1
 kind: ImagePolicy
 metadata:
   name: gohelloworld-a
+  namespace: flux-system
 spec:
   imageRepositoryRef:
     name: gohelloworld
