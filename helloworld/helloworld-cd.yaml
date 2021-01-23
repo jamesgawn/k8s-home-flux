@@ -12,10 +12,10 @@ metadata:
   name: gohelloworld
 spec:
   imageRepositoryRef:
-    name: podinfo
+    name: gohelloworld
   policy:
     semver:
-      range: >=1.0.0
+      range: 1.x.x
 ---
 apiVersion: image.toolkit.fluxcd.io/v1alpha1
 kind: ImageUpdateAutomation
