@@ -7,7 +7,6 @@ spec:
     branch: main
     gitRepositoryRef:
       name: flux-system
-      namespace: flux-system
   commit:
     authorEmail: fluxcdbot@users.noreply.github.com
     authorName: fluxcdbot
