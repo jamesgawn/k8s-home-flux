@@ -2,12 +2,12 @@ apiVersion: image.toolkit.fluxcd.io/v1alpha1
 kind: ImageUpdateAutomation
 metadata:
   name: flux-system
-  namespace: flux-system
 spec:
   checkout:
     branch: main
     gitRepositoryRef:
       name: flux-system
+      namespace: flux-system
   commit:
     authorEmail: fluxcdbot@users.noreply.github.com
     authorName: fluxcdbot
