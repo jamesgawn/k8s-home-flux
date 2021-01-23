@@ -1,6 +1,6 @@
 # Flux Home
 
-The repository for the flux configuration of my home kubernetes cluster. 
+The repository for the flux configuration of my home kubernetes cluster.
 
 ## Bootstrapping Cluster
 _These steps assume you have already configured your .kube/config file to allow access to the cluster via the kubectl CLI._
@@ -12,7 +12,7 @@ curl -s https://toolkit.fluxcd.io/install.sh | sudo
 ```bash
 export GITHUB_TOKEN=INSERT_TOKEN_HERE
 ```
-2. Configure cluster 
+2. Configure cluster
 ```bash
 flux bootstrap github --personal --repository=flux-home --owner=jamesgawn --components-extra=image-reflector-controller,image-automation-controller
 ```
@@ -37,7 +37,7 @@ metadata:
   namespace: namespace
 
 ```
-2. Secure it using public key 
+2. Secure it using public key
 ```bash
 kubeseal --format=yaml --cert=pub-sealed-secret-cert.pem < example-secret.yaml > example-secret-sealed.yaml
 ```
