@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gohelloworld-b
-  namespace: flux-system
   labels:
     app: gohelloworld-b
 spec:
