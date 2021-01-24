@@ -8,8 +8,9 @@ metadata:
 spec:
   tls:
     - hosts:
-        - helloworld.home.gawn.uk
         - home.gawn.uk
+        - helloworld.home.gawn.uk
+        - ddns.home.gawn.uk
       secretName: ingress-route53-dns-tls
   rules:
     - host: ddns.home.gawn.uk
