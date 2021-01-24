@@ -6,3 +6,4 @@ resources:
 - gotk-image-updates.yaml
 - gotk-notifications.yaml
 - cert-manager.yaml
+- gotk-sealed-secrets.yaml
