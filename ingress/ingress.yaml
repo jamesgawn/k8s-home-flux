@@ -8,27 +8,27 @@ metadata:
 spec:
   tls:
     - hosts:
-        - helloworld1.home.gawn.uk
-        - helloworld2.home.gawn.uk
+        - helloworld.home.gawn.uk
+        - podinfo.home.gawn.uk
       secretName: ingress-route53-dns-tls
   rules:
-    - host: helloworld1.home.gawn.uk
+    - host: helloworld.home.gawn.uk
       http:
         paths:
           - pathType: Prefix
             path: "/"
             backend:
               service:
-                name: gohelloworld-a
+                name: gohelloworld
                 port:
                   number: 80
-    - host: helloworld2.home.gawn.uk
+    - host: podinfo.home.gawn.uk
       http:
         paths:
           - pathType: Prefix
             path: "/"
             backend:
               service:
-                name: gohelloworld-b
+                name: podinfo
                 port:
                   number: 80

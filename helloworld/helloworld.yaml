@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gohelloworld-a
+  name: gohelloworld
   labels:
-    app: gohelloworld-a
+    app: gohelloworld
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: gohelloworld-a
+      app: gohelloworld
   template:
     metadata:
       labels:
-        app: gohelloworld-a
+        app: gohelloworld
     spec:
       containers:
       - name: nginx
@@ -23,10 +23,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: gohelloworld-a
+  name: gohelloworld
 spec:
   selector:
-    app: gohelloworld-a
+    app: gohelloworld
   ports:
   - name: http
     protocol: TCP
