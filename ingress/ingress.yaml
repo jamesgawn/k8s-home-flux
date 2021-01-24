@@ -9,8 +9,11 @@ spec:
   tls:
     - hosts:
         - helloworld.home.gawn.uk
-        - podinfo.home.gawn.uk
+        - home.gawn.uk
       secretName: ingress-route53-dns-tls
+  defaultBackend:
+    service:
+      name: gawn-website
   rules:
     - host: helloworld.home.gawn.uk
       http:
@@ -20,5 +23,15 @@ spec:
             backend:
               service:
                 name: gohelloworld
+                port:
+                  number: 80
+    - host: home.gawn.uk
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: gawn-website
                 port:
                   number: 80
