@@ -10,7 +10,7 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1alpha1
 kind: ImagePolicy
 metadata:
-  name: gohelloworld-b
+  name: gohelloworld
   namespace: flux-system
 spec:
   imageRepositoryRef:
