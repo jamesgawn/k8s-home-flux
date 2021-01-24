@@ -5,3 +5,4 @@ resources:
 - gotk-sync.yaml
 - gotk-image-updates.yaml
 - gotk-notifications.yaml
+- cert-manager.yaml
