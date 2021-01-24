@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gohelloworld-b
+  namespace: flux-system
   labels:
     app: gohelloworld-b
 spec:
@@ -16,7 +17,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: ghcr.io/jamesgawn/gohelloworld:latest
+          image: ghcr.io/jamesgawn/gohelloworld:0.1.0
           ports:
             - containerPort: 8080
 ---
