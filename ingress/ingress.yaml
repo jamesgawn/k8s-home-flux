@@ -11,11 +11,6 @@ spec:
         - helloworld.home.gawn.uk
         - home.gawn.uk
       secretName: ingress-route53-dns-tls
-  defaultBackend:
-    service:
-      name: gawn-website
-      port:
-        number: 80
   rules:
     - host: helloworld.home.gawn.uk
       http:
