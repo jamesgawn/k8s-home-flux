@@ -22,13 +22,3 @@ spec:
                 name: gohelloworld
                 port:
                   number: 80
-    - host: podinfo.home.gawn.uk
-      http:
-        paths:
-          - pathType: Prefix
-            path: "/"
-            backend:
-              service:
-                name: podinfo
-                port:
-                  number: 80
