@@ -5,7 +5,7 @@ metadata:
   name: flux-system
 spec:
   gitImplementation: go-git
-  interval: 1m0s
+  interval: 1h0m0s
   ref:
     branch: main
   secretRef:
@@ -41,6 +41,6 @@ spec:
     authorEmail: fluxcdbot@users.noreply.github.com
     authorName: fluxcdbot
     messageTemplate: '[ci skip] automated image update'
-  interval: 1h0m0s
+  interval: 1m0s
   update:
     setters: {}
