@@ -1,0 +1,72 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: ddns-service
+  namespace: default
+spec:
+  encryptedData:
+    SERVICE_PASS: AgCnaSrSOI3GkQN+eEFVyZXnaKuo3z9qc1N8oP8qXzQ1pzZvyJeK28UXdvSpRyepiM/Imkv5Wo5Q0dUXLcB07YHgKzzLfVn1byeC+SOCBwgWyMXEVsBUbUunSx7cRwdSsHf76iXMuhIUh1IH0mpJZLjGgoGcT4fxka9f08cGLYq9kHWiMz537qLqFVybYwNMUCbgr/AntIuzdP2ZXHQ+98QDtr9P8kqhnJIh1JndAmy6+cfcPyFtHtKoQBtJIG6Xlqp+f3nlpX97d9CxoFDJRKSwCWfzFMx6ZM0kg2t5cDAEUe+VGkh/h9TzZsWAzkrhxinx26QJHu7Om4RIzHBZKVSqPFtJcb2ZXTsRR5xB31/ss1cr35qgs3LYD6Ddpnz4yxfz9HGlJFzgCM3FWDlXnDY6Ca4ovLbhh9UWVLNQHCk6gVlk3/YostJFT/7N9dYTMEZ2KdNYZKnRQQlUOAbtoUE8PHS4RCi2aR3HEZf3BnGXEsU7DBwWhbUn817tjfhlURrudkQrEg+2JmNKXJPO8Wu7ryaKq3o1DgfrA7IYtlCGGHtCPpV4zU4ysCuXyGXFqbi2jyrLS9sZS7kcXOoA+1IYoO0IMz7yybXRX0AxqRRCDS9H3p8VZR/lvam2QZFOuu5JIncwdCdPl5dVgS9nVjjNbrn7LANxbu8ia29gb3l8NHXBs+ieyEPjwZ2pQ7NytY4qJdCA/coHCtF74wnm8eHrtqqIvWsg3lP0RC+xkIl7uulwZaxUhvSJFySd
+    SERVICE_USER: AgAAM/IpoozmnFiLONgyZVwLPkSW14CS6bYLkw7tjPqhodJ3EmTpRQnN8MAZvN3akeIkkgzZJboUxHTzdm/S+48gntZMex43TJoh5TDAzn5oYkOxSTCPMpkLdFLVxwFIq3vU5SrWmj6DqdNEZrc6LnPvV97OTMhO4DvYkl5htZ5OKl3rvOJgdiry9ei4UiLoYgv8jzKDdAS8oCu/5mueUhQEYdSXlCNGEV0jig+MN36m8ZQJnx93AMr2N1cz54NdxtXRY+oG0BwFPAZuU8K0/yE+MeR4SgEyJa6mo3sVRFzu8xTB8DhifjBi8jLx/oglzkUEGwgETx90NIEwM7KLdV9l2KIx45FrNHe76vRYjQbaSE2hePCOZTHlo47z0wIQRZKj8CcvAui9NZCIGG7+x7FSuUIMSchAhNNcAmTOTY9rrfO3T0Zirq9GxlZ0mlYdsqnYrO1GbxRCb3XV0e9S2XWEVgCYQmQ/clMh0JV6N81HbALnqnKzCFScO++73upzhrrLxqxNKf7wB0Bsz8+IR1aHKgBLE2JV+W1HAHj29P8jZeffbD7nqVusW+/gLm8xXk9hwlY9UQmltBeZEk364nfpFVqDNf/A2QShwKuU2Q3cXAe+1qSN6FI5jmbeo0K/LaEwbMwa9JDWc6sixNvQpkDQWOZxz4+Nn8olgKcPwlN2H8PeM7NQrXPbZZwt0Y9SeNIP4pFIFA==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: ddns-service
+      namespace: default
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ddns-service
+  labels:
+    app: ddns-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ddns-service
+  template:
+    metadata:
+      labels:
+        app: ddns-service
+    spec:
+      containers:
+        - name: nginx
+          image: ghcr.io/jamesgawn/ddns-service:0.0.30 # {"$imagepolicy": "default:ddns-service"}
+          envFrom:
+            - secretRef:
+                name: ddns-service
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ddns-service
+spec:
+  selector:
+    app: ddns-service
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImageRepository
+metadata:
+  name: ddns-service
+spec:
+  image: ghcr.io/jamesgawn/ddns-service
+  interval: 5m0s
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImagePolicy
+metadata:
+  name: ddns-service
+spec:
+  imageRepositoryRef:
+    name: ddns-service
+  policy:
+    semver:
+      range: x.x.x

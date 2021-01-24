@@ -12,6 +12,16 @@ spec:
         - home.gawn.uk
       secretName: ingress-route53-dns-tls
   rules:
+    - host: ddns.home.gawn.uk
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: ddns-service
+                port:
+                  number: 80
     - host: helloworld.home.gawn.uk
       http:
         paths:
