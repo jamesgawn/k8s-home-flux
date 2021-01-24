@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: ghcr.io/jamesgawn/ddns-service:0.0.30 # {"$imagepolicy": "default:ddns-service"}
+        image: ghcr.io/jamesgawn/ddns-service:0.0.31 # {"$imagepolicy": "default:ddns-service"}
         env:
         - name: AWS_DEFAULT_REGION
           value: eu-west-2
