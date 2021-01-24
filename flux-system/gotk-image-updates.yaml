@@ -41,6 +41,6 @@ spec:
     authorEmail: fluxcdbot@users.noreply.github.com
     authorName: fluxcdbot
     messageTemplate: '[ci skip] automated image update'
-  interval: 1m0s
+  interval: 1h0m0s
   update:
     setters: {}
