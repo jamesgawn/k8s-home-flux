@@ -25,8 +25,8 @@ spec:
       template:
         spec:
           containers:
-            - name: ddns-service
-              image: ghcr.io/jamesgawn/ddns-service:0.0.30 # {"$imagepolicy": "default:ddns-service"}
+            - name: ddns-job
+              image: ghcr.io/jamesgawn/ddns-job:0.0.1 # {"$imagepolicy": "default:gawn-website"}
               env:
                 - name: AWS_DEFAULT_REGION
                   value: eu-west-2
@@ -37,3 +37,22 @@ spec:
                 - -z home.gawn.uk.
                 - -d home.gawn.uk
           restartPolicy: OnFailure
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImageRepository
+metadata:
+  name: ddns-job
+spec:
+  image: ghcr.io/jamesgawn/ddns-job
+  interval: 5m0s
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImagePolicy
+metadata:
+  name: ddns-job
+spec:
+  imageRepositoryRef:
+    name: ddns-job
+  policy:
+    semver:
+      range: x.x.x
