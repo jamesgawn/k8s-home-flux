@@ -19,7 +19,7 @@ kind: CronJob
 metadata:
   name: ddns-job
 spec:
-  schedule: "*/2 * * * *"
+  schedule: "*/5 * * * *"
   jobTemplate:
     spec:
       template:
