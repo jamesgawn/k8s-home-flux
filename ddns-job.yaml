@@ -1,0 +1,39 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: ddns-job
+  namespace: default
+spec:
+  encryptedData:
+    AWS_ACCESS_KEY_ID: AgC4fCTy7MYKQARawVlZ7aQme/9C2hxKQ/Sou/PCHVZZKbGpZg4g++Tbv+rBERFgTrI1neGA/CsmW44OB9yJRbOsEp9ALE21YPgo/xNj1QxPQoYajn1zQmoOfGjvAsI5afk4ca+IPi07W3dxDaJA25a+WXcS6KNB5qNkgBAnD4jEVwFekHb/z2DYbevbjq8FHplVcYOJuN+M1imFFWdi2sgKEEBiRBPMqOV8sN+Q6lWCZmuTUeLdvMz924nIZO+1mSWvKFAWn9WfDWehgWNuZUEttWZzPvrf2mYSnyZ95lB0QDO9jxF5SnDk1rw3ZzO5VnVq5qpn/XmdYAPlrs8FYUkBzKA5874QjwRhSq4rVlXuxbl28y+Xmvg0TOUjYwVxZBYUaOoWGDApnW8zpM6Qt1jmnaGMkMV+2q7re+Q5frBgD5kv6KgOjJMgXW/zXsp5cYspV6pIHBhPLxU11W8JMYqc9G+UBdgq1J+VwR0HSG7+FlTIthRUQRTEt4tOVj6e8MzUtmKWwJMIP9IeoxvyukXQvFkTQFznXpX1X+bjlIDYs8f8CfHzLA/jojR2Cjr0VK/n/TqQRXTV5woJLLjPC7Yne7gPrnZHrSiKK//Bm6fE0WbnzGuhRjxA8z1Grd0wzd5UPMW9Pa4VrrmETfSgQ1+jMiN76ZxGbe4EBjCIELXXjdGYrdbPpwdGk+iS3Hh+fD7W+tz0Jz+/2AhgTEM8O73muutWcA==
+    AWS_SECRET_ACCESS_KEY: AgCw8xjp5m/YT03vjSkDM1QukqT6upgbreLPEjz49UFF011RGVANhtA1LMGUyx0DQg9uLM4Xgo8GqxKElXjmIcLCD4mVhtWR4ktMp2DGrWacPDgh63ojCXluuoJXltj/XIqkkV2jmmoYyjh1X2ITF27JaF/98Ngp1Fkbi4X/fLF1NftuHJBdKW/N5oSoj57JHLHgfn5+twdC/1FEk+Stqu4s+n0b9Mt/TC4EKVoeGb+1qQBuULymlntuG4whqC0h4S8wwL+q9vjf/0so/2LMtTbd/Fg/y/IecI5wkaiEvqr/587TtHIk2TyVoc8kHXz/p7G43Iiw+p3JiU/sBijwCEcUCQKm/nNQLmZo+MnUkjfT0THtx5z5A9jMwNpPDf2OonExQN4yUMlARqiiHe5EnDIcPgIF1ykw6Frf05+qMOKZSlVGIem8FFyCzeqkoame0FdMxJlgeeAxBqt8Rl4TKpZ4q53diRlXsYdLn/7vBJgCkpr+UabD59Kkc+rlTQUPeNbV2JUCO+bPCgLNxjXunQuYJZoAJYsRBYYoWHJCYmH0gaGd5Tck1hAA37BkHMc+r6lnyW7xoID99Q4w25RbIk2KY6XK/4DUVaEM96WpBr6YBBSulJw46mYiSobso7h+/6vwGjfFU6/BUwzqSfInYqKrkwqMpHJXImRy7mFZr0mlzwZYrOwjYUWeX1VKUJzkEQ+Ve7v7zDoKWfbDqNFOqCgRq0tnHBf+Dpkb36MmQXqKl8g7Gvh1ZX/h
+  template:
+    metadata:
+      creationTimestamp: null
+      name: ddns-job
+      namespace: default
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: ddns-job
+spec:
+  schedule: "*/2 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: ddns-service
+              image: ghcr.io/jamesgawn/ddns-service:0.0.30 # {"$imagepolicy": "default:ddns-service"}
+              env:
+                - name: AWS_DEFAULT_REGION
+                  value: eu-west-2
+              envFrom:
+                - secretRef:
+                    name: ddns-job
+              args:
+                - -z home.gawn.uk.
+                - -d home.gawn.uk
+          restartPolicy: OnFailure
