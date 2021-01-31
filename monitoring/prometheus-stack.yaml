@@ -28,5 +28,6 @@ spec:
         namespace: monitoring
   interval: 1h0m0s
   values:
-    tags:
-      kubeStateMetrics.enabled: false
+    kubeStateMetrics:
+      enabled: false
+
