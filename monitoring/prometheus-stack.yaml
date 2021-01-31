@@ -55,3 +55,6 @@ spec:
         name: kube
         namespace: monitoring
   interval: 1h0m0s
+  values:
+    image:
+      repository: gcr.io/k8s-staging-kube-state-metrics
