@@ -57,5 +57,5 @@ spec:
   interval: 1h0m0s
   values:
     image:
-      repository: gcr.io/k8s-staging-kube-state-metrics/kube-state-metrics
-      tag: v1.9.7
+      repository: k8s.gcr.io/kube-state-metrics/kube-state-metrics
+      tag: v2.0.0-beta
