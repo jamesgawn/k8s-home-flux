@@ -4,6 +4,7 @@ metadata:
   name: alertmanager
   labels:
     alertmanagerConfig: alertmanager
+  namespace: monitoring
 spec:
   route:
     groupBy: ['cluster', 'alertname']
@@ -24,6 +25,7 @@ kind: SealedSecret
 metadata:
   creationTimestamp: null
   name: alertmanager-slack
+  namespace: monitoring
 spec:
   encryptedData:
     webhook: AgC7vEyL0AW/tl0P6jegSiPV7zg1n8wJU6uOMHCK1VUiTgaZIjkJwoRbwRCziJi53SsVTdkgVYEOjf/ik0Rraj4g7MLlw21JE3biWw+keaJOR0ig/IGk0gfj39TJlzLzx0nStWLPqZz7IfFyU+2t9/fRyR2mThXDeS6rnq7abv8TJ+dmxTpdlkTdWJyZOnPV+bQfW/R+1ccExTRiZA+IPI+Y4ldy9kcwSKdMEz7JXN6fB2RztTPcuSM5jwh9C1qWxa0gT8SM38GSiRAXhjdoRKPpvw8+GIosG19BObB0sZZt+8gT5G2aKzQZq2wI4sLtwQXOjp1m+4T8HJWcU5qzvkZu8PPGlIXwN6MlWjjYuNI4UqMV7/s2E0+Emb41yCVfNn3tGBI4Ub4LW97ctOWFWB2VFyOW061SBYMrs0nddoGLTZvumdvWsvzVqmWGsFQ+GaXjjwr5c0pOEew9LMnHVH1ReAl0Ucv8mxaE70wlIpgBCWrDi54e6S5xDuajE34gWcYWEOUkrs9N4LlCwypZ4t8Lkzz79Xa+rE0TBt7OagP0JrPCdhOJLrYCIBbSYxJ9sOYEJfdX9NaMsXWhEUGJ0DTQVIjtFCYg2A0Q/jn5IEWzquQ4TpfGKA4SXmz6+uInbh9K3hg50Vb9LnalKzGSQA5Oj+XvP0Pb2TALRN3rcOogj56pfdCc3WqCnQLxCzijkVTX5NB6Ss2mveIqMH+1i6n8bpV40epy3FaoEYsAjDpO3pfqFfX4Dt4U18M0IT1qV6RgzlH8IfBRHK1PnI4PX8fRm3In/gHN95XwfuuHeEgc
