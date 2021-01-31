@@ -20,7 +20,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: "prometheus-community/kube-prometheus-stack"
+      chart: "kube-prometheus-stack"
       version: '13.4.x'
       sourceRef:
         kind: HelmRepository
