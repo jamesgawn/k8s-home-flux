@@ -6,7 +6,7 @@ metadata:
     alertmanagerConfig: alertmanager
 spec:
   route:
-    group_by: ['cluster', 'alertname']
+    groupBy: ['cluster', 'alertname']
     groupWait: 30s
     groupInterval: 5m
     repeatInterval: 12h
