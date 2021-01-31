@@ -27,3 +27,6 @@ spec:
         name: prometheus
         namespace: monitoring
   interval: 1h0m0s
+  values:
+    kubeStateMetrics:
+      enabled: false
