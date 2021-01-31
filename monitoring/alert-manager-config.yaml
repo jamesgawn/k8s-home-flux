@@ -16,8 +16,8 @@ spec:
       slackConfigs:
         - sendResolved: true
           apiURL:
-            - name: alertmanager-slack
-              key: webhook
+            name: alertmanager-slack
+            key: webhook
 ---
 apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
