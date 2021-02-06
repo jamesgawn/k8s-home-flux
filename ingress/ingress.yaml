@@ -22,13 +22,3 @@ spec:
                 name: gohelloworld
                 port:
                   number: 80
-    - host: home.gawn.dev
-      http:
-        paths:
-          - pathType: Prefix
-            path: "/"
-            backend:
-              service:
-                name: gawn-website
-                port:
-                  number: 80
