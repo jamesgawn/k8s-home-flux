@@ -8,8 +8,9 @@ metadata:
 spec:
   tls:
     - hosts:
-        - home.gawn.dev
+        - gawn.dev
         - helloworld.gawn.dev
+        - cluster.gawn.dev
       secretName: ingress-route53-dns-tls
   rules:
     - host: helloworld.gawn.dev
