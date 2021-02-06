@@ -35,7 +35,7 @@ spec:
                 name: ddns-job
             args:
             - "-z=gawn.dev."
-            - "-d=home.gawn.dev"
+            - "-d=cluster.gawn.dev"
           restartPolicy: OnFailure
 ---
 apiVersion: image.toolkit.fluxcd.io/v1alpha1
