@@ -34,8 +34,8 @@ spec:
             - secretRef:
                 name: ddns-job
             args:
-            - "-z=home.gawn.uk."
-            - "-d=home.gawn.uk"
+            - "-z=gawn.dev."
+            - "-d=home.gawn.dev"
           restartPolicy: OnFailure
 ---
 apiVersion: image.toolkit.fluxcd.io/v1alpha1

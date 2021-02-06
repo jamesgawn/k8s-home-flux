@@ -8,11 +8,11 @@ metadata:
 spec:
   tls:
     - hosts:
-        - home.gawn.uk
-        - helloworld.home.gawn.uk
+        - home.gawn.dev
+        - helloworld.gawn.dev
       secretName: ingress-route53-dns-tls
   rules:
-    - host: helloworld.home.gawn.uk
+    - host: helloworld.gawn.dev
       http:
         paths:
           - pathType: Prefix
@@ -22,7 +22,7 @@ spec:
                 name: gohelloworld
                 port:
                   number: 80
-    - host: home.gawn.uk
+    - host: home.gawn.dev
       http:
         paths:
           - pathType: Prefix
