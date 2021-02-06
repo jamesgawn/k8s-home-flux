@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: ghcr.io/jamesgawn/gohelloworld:1.0.0 # {"$imagepolicy": "default:gohelloworld"}
+        image: ghcr.io/jamesgawn/gohelloworld:1.0.1 # {"$imagepolicy": "default:gohelloworld"}
         ports:
         - containerPort: 8080
 ---
