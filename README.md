@@ -60,7 +60,7 @@ export GITHUB_TOKEN=INSERT_TOKEN_HERE
 ```
 2. Configure cluster
 ```bash
-flux bootstrap github --personal --repository=k8s-home --owner=jamesgawn --components-extra=image-reflector-controller,image-automation-controller
+flux bootstrap github --personal --repository=k8s-home --owner=jamesgawn --read-write-key --personal --components-extra=image-reflector-controller,image-automation-controller
 ```
 
 ## How to
