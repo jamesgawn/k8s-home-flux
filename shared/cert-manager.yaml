@@ -29,16 +29,16 @@ apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
   creationTimestamp: null
-  name: prod-route53-credentials
-  namespace: cert-manager
+  name: ddns-service
+  namespace: default
 spec:
   encryptedData:
-    home-secret-key: AgCIqaNMmQqsMv60kNdWT7E/9sh97ogO3AZWK85UAP1+D9alhyrII5oOQN+nTadLjgUnUBJ1jcNnhlnoEC4UJo9dzUHXOGGnh9vkIslUhcBR8/4sTR0rNR7W2MoU1KkRRVYf/361At1iJ5zAIYs/ZdiADISIsOUw3YcqrLBCotJwZCZuo8Uhy3FvIMG4T1XYhJs88/5TqDFar9Ftl8EDT+xeBF4g7qlMDeDm73k/7uvIu9KzBE28OBmbpqbBZqFHfV0agH5JWMzd6kO5YmA51S5eQyFayd8EYzf49LEdHnW780Z0I9leZhPvfv+rqUXQ0XE5UCntW68a3n7NwKLeTiQXneEugR2jCEVOOglDGMf0XWIziZwfjCfZRfA/ybO4ESG7YGZgwkIwWVvtVSNfZtHJJpCQA5duH2r7klp3lmU+SNSfPTyzTBfZVVjXHV+QyIYbgxKuGXwpfPvaAt/+SsAieD7SSBjqmacBc5BptWa4ND7BBgsMT8rdvKkLq5D/sh6PbxNTXY7DWuKNPCZdIpgNEfc9p2tIFqjDghnW6QQVkg7VxXka6rBTn3yRU+QA1FJnlOVYGH7sLpQvt/C03KMmmqvuoTUpnYnp8G00W9TTfBV+s1tJapi7R1v7dnaoE+z0F5+eEqbe0bJPyfVvrwiG3e/PQfuXUye8CirtnY7HP65HX8ZqAh6yiC7WXc9opYXrdYGSw5/mdZlR2m+ggtCiy/fR3t5brWPHeRFWhwBMa97rnBdz0BrE
+    home-secret-key: AgBbwuqEgaRIWZiqpjGsgVQ7BdiIYIPbdKFCPuRmCAOoYN/ZnWWloU4t4MyrsbVYa4bF8x12ACzc3hrlpe3mojJ++nmH1oyUU9HiV2+oFVWC/eXWjaImBk8DGIvRzXpl6qWrJqMbiP+jk2dLUK9iQVQ5AFacqRL9UNo/wRjDYIzJLId4H9SEy54YMiCWwTeI6I/lCeVSzL+Xl5xyM82c/GlQ9Cr1V8Ece0ZPVTPnrm/T26XUqRmEYQcvAhN0xsNks4VPr7tDTqvUNZTABnHA8i687BS/9gzSD39AiLHxw2ojLbHpuqmaV774zIY7CzOgH7ziLVkwJKLi5yjO+zhlsWZLtfirpTn7k+Y6mXx4A5dM51hO7CdRhcnmOav8fRHi+RGefmwD/b1UPEa0Gxkezk7kq5XiYgHe4kVZUsy7jtitnZZ7YqYzaLm5Y2dTyBM2sipyUR/bdWfWKXpbs0rfOtz8/u+7XgwjAMDDKZnfzcpMfhHXQTFmAxLtBWZ+rcLIJkiOWZNIhauHSDgYNqatSwDi9TUFzjJEEYdstuT5adzq+o7YGFotG6y6r+bZdt3T2dFjbM55Yzpl08ylu8mPwZ+ASneU50p6/pdBFjD04kPBRDwKiGIwziqaXbYK5AsJMG2yE8fuN4qekvdjBdthTzSA1lq/8cS/9MiIDNT3gA+gxCXxUzDRLi3X5w7YpPnmbrqYLviEkblrXlOZACVR/fsQFf9vQqcWRe2C+ggrWTk=
   template:
     metadata:
       creationTimestamp: null
-      name: prod-route53-credentials
-      namespace: cert-manager
+      name: ddns-service
+      namespace: default
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -55,7 +55,7 @@ spec:
         dns01:
           route53:
             region: eu-central-1
-            accessKeyID: AKIA6IH3BM5DJM5ZLVX3
+            accessKeyID: AKIA6IH3BM5DGCUWLG6P
             secretAccessKeySecretRef:
               name: prod-route53-credentials
               key: home-secret-key
