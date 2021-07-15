@@ -40,23 +40,23 @@ spec:
       creationTimestamp: null
       name: prod-route53-credentials
       namespace: default
----
-apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
-metadata:
-  name: letsencrypt-dns01-prod
-spec:
-  acme:
-    email: james@gawn.uk
-    server: https://acme-v02.api.letsencrypt.org/directory
-    privateKeySecretRef:
-      name: letsencrypt-production-issuer-account-key
-    solvers:
-      - selector: {}
-        dns01:
-          route53:
-            region: eu-central-1
-            accessKeyID: AKIA6IH3BM5DGCUWLG6P
-            secretAccessKeySecretRef:
-              name: prod-route53-credentials
-              key: home-secret-key
+#---
+#apiVersion: cert-manager.io/v1
+#kind: ClusterIssuer
+#metadata:
+#  name: letsencrypt-dns01-prod
+#spec:
+#  acme:
+#    email: james@gawn.uk
+#    server: https://acme-v02.api.letsencrypt.org/directory
+#    privateKeySecretRef:
+#      name: letsencrypt-production-issuer-account-key
+#    solvers:
+#      - selector: {}
+#        dns01:
+#          route53:
+#            region: eu-central-1
+#            accessKeyID: AKIA6IH3BM5DGCUWLG6P
+#            secretAccessKeySecretRef:
+#              name: prod-route53-credentials
+#              key: home-secret-key
