@@ -11,7 +11,7 @@ spec:
   template:
     metadata:
       creationTimestamp: null
-      name: ddns-service
+      name: ddns-job
       namespace: default
 ---
 apiVersion: batch/v1beta1
