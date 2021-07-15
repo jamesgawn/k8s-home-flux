@@ -30,7 +30,7 @@ microk8s status --wait-ready
 
 5. Enable useful services 
 ```bash
-microk8s enable dns storage ingress helm3
+microk8s enable dns storage ingress helm3 metrics-server
 ```
 
 ### _Optional:_ Adding additional nodes
