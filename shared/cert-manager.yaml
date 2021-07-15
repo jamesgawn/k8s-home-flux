@@ -1,0 +1,61 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: cert-manager
+  namespace: flux-system
+spec:
+  interval: 1h0m0s
+  url: https://charts.jetstack.io
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: cert-manager
+  namespace: cert-manager
+spec:
+  chart:
+    spec:
+      chart: cert-manager
+      version: '1.1.x'
+      sourceRef:
+        kind: HelmRepository
+        name: cert-manager
+        namespace: flux-system
+  interval: 1h0m0s
+  values:
+    installCRDs: true
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: prod-route53-credentials
+  namespace: cert-manager
+spec:
+  encryptedData:
+    home-secret-key: AgCIqaNMmQqsMv60kNdWT7E/9sh97ogO3AZWK85UAP1+D9alhyrII5oOQN+nTadLjgUnUBJ1jcNnhlnoEC4UJo9dzUHXOGGnh9vkIslUhcBR8/4sTR0rNR7W2MoU1KkRRVYf/361At1iJ5zAIYs/ZdiADISIsOUw3YcqrLBCotJwZCZuo8Uhy3FvIMG4T1XYhJs88/5TqDFar9Ftl8EDT+xeBF4g7qlMDeDm73k/7uvIu9KzBE28OBmbpqbBZqFHfV0agH5JWMzd6kO5YmA51S5eQyFayd8EYzf49LEdHnW780Z0I9leZhPvfv+rqUXQ0XE5UCntW68a3n7NwKLeTiQXneEugR2jCEVOOglDGMf0XWIziZwfjCfZRfA/ybO4ESG7YGZgwkIwWVvtVSNfZtHJJpCQA5duH2r7klp3lmU+SNSfPTyzTBfZVVjXHV+QyIYbgxKuGXwpfPvaAt/+SsAieD7SSBjqmacBc5BptWa4ND7BBgsMT8rdvKkLq5D/sh6PbxNTXY7DWuKNPCZdIpgNEfc9p2tIFqjDghnW6QQVkg7VxXka6rBTn3yRU+QA1FJnlOVYGH7sLpQvt/C03KMmmqvuoTUpnYnp8G00W9TTfBV+s1tJapi7R1v7dnaoE+z0F5+eEqbe0bJPyfVvrwiG3e/PQfuXUye8CirtnY7HP65HX8ZqAh6yiC7WXc9opYXrdYGSw5/mdZlR2m+ggtCiy/fR3t5brWPHeRFWhwBMa97rnBdz0BrE
+  template:
+    metadata:
+      creationTimestamp: null
+      name: prod-route53-credentials
+      namespace: cert-manager
+---
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-dns01-prod
+spec:
+  acme:
+    email: james@gawn.uk
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: letsencrypt-production-issuer-account-key
+    solvers:
+      - selector: {}
+        dns01:
+          route53:
+            region: eu-central-1
+            accessKeyID: AKIA6IH3BM5DJM5ZLVX3
+            secretAccessKeySecretRef:
+              name: prod-route53-credentials
+              key: home-secret-key
