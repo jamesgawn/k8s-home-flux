@@ -29,15 +29,15 @@ apiVersion: bitnami.com/v1alpha1
 kind: SealedSecret
 metadata:
   creationTimestamp: null
-  name: ddns-service
+  name: prod-route53-credentials
   namespace: default
 spec:
   encryptedData:
-    home-secret-key: AgBbwuqEgaRIWZiqpjGsgVQ7BdiIYIPbdKFCPuRmCAOoYN/ZnWWloU4t4MyrsbVYa4bF8x12ACzc3hrlpe3mojJ++nmH1oyUU9HiV2+oFVWC/eXWjaImBk8DGIvRzXpl6qWrJqMbiP+jk2dLUK9iQVQ5AFacqRL9UNo/wRjDYIzJLId4H9SEy54YMiCWwTeI6I/lCeVSzL+Xl5xyM82c/GlQ9Cr1V8Ece0ZPVTPnrm/T26XUqRmEYQcvAhN0xsNks4VPr7tDTqvUNZTABnHA8i687BS/9gzSD39AiLHxw2ojLbHpuqmaV774zIY7CzOgH7ziLVkwJKLi5yjO+zhlsWZLtfirpTn7k+Y6mXx4A5dM51hO7CdRhcnmOav8fRHi+RGefmwD/b1UPEa0Gxkezk7kq5XiYgHe4kVZUsy7jtitnZZ7YqYzaLm5Y2dTyBM2sipyUR/bdWfWKXpbs0rfOtz8/u+7XgwjAMDDKZnfzcpMfhHXQTFmAxLtBWZ+rcLIJkiOWZNIhauHSDgYNqatSwDi9TUFzjJEEYdstuT5adzq+o7YGFotG6y6r+bZdt3T2dFjbM55Yzpl08ylu8mPwZ+ASneU50p6/pdBFjD04kPBRDwKiGIwziqaXbYK5AsJMG2yE8fuN4qekvdjBdthTzSA1lq/8cS/9MiIDNT3gA+gxCXxUzDRLi3X5w7YpPnmbrqYLviEkblrXlOZACVR/fsQFf9vQqcWRe2C+ggrWTk=
+    home-secret-key: AgAJjOQNHnNeBz8okmbQvmW5eZ90vZ+Z+ZepMTSOP9xEu3cVrrjoNG8hQ69x+l49z7EP71Y8sOtHyzgL6ZJd3WBpQEhR0AqElGgFb8rXo+d2th2H9qdqgRm0yaN/1BMPCb/CmHt5ExeKVH0pZ0K+LyIfthV/W2hGn7WEnAsJ3Ek/8T7uhvXC0kbMtBEga4iGxefoAKQ2uwYSlCeLXvp5HEIK1yziQ+/zLgwNjHnhZyglhEhkZo7PpAsL47p4NwDnnm+HZ6l45uaICb10BBQWwyJHhI/RXIhX11vu1r22kft4a0TBJ73JCldF8HavrLqi9MlUtgbe6aKxXNh0EP0JckMmWTIoS1NRryTlIh5m8/eLP029ju98JvlSRFaPvnoTODrsclepG5Bv+6r6TtE5TuPA78oC0W1/SJcwMisyqPFGZHuGHehLbGArePbw66T0DG7PulDqFwA8xyGd9R2NrzoAIVxk7BX+jd4GKotl1t1GJX2dLzsnnrd42VS/ipua8TqCDnAZSLim4PTJ04yU6rN4yFEiSQF5ZsDPaxPk5Tay8SbsgMp796KlpQ8SciPlAlRAJDiMATvv/W4DYq8py9iK7gpMrZwtJKQDvUzcdiPuYDNwbU/xvvzMWzp8ec2VYiyCP/cYvsXY/5rejYOZMriGu7fpNiKCc+BGc0bfdC5TovBfarvKWuq06utn/+lzs6pSR0wK8KAPXLBQe03wSSeXlypTyVBR/+nkavhN4Cadmn8txrnKti9sfA==
   template:
     metadata:
       creationTimestamp: null
-      name: ddns-service
+      name: prod-route53-credentials
       namespace: default
 ---
 apiVersion: cert-manager.io/v1
