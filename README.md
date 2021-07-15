@@ -54,7 +54,7 @@ _These steps assume you have already configured your .kube/config file to allow 
 ```bash 
 curl -s https://toolkit.fluxcd.io/install.sh | sudo 
 ```
-1. Set github personal access token for repository:
+1. Set github personal access token (with all repo permissions):
 ```bash
 export GITHUB_TOKEN=INSERT_TOKEN_HERE
 ```
