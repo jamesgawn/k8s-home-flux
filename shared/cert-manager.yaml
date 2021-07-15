@@ -17,11 +17,11 @@ spec:
   chart:
     spec:
       chart: cert-manager
-      version: '1.4.x'
+      version: '1.1.x'
       sourceRef:
         kind: HelmRepository
         name: cert-manager
-        namespace: flux-system
+        namespace: cert-manager
   interval: 1h0m0s
   values:
     installCRDs: true
@@ -31,15 +31,15 @@ kind: SealedSecret
 metadata:
   creationTimestamp: null
   name: prod-route53-credentials
-  namespace: flux-system
+  namespace: cert-manager
 spec:
   encryptedData:
-    home-secret-key: AgAeKZDq+MMbELN7x6VMl9E6U+JzLj8VxYUj5I7apGqkpQCXLnfx/rjBu4y7YmW/x7qKa0+T2sqCXETHDK0pkowlVfyS7b+z84mVug0a5UkCPR11yWK61EYDN9mRgoa96loH60FC4OiIeWm8pgpgZcSZPxbXJiYtCYyEyRNijtboNCWuEcU8AjCtUTJION0A6w1IUJEmEXvANqfOxE763HDkS6oABitbWc09wAiwnQX7g+8p0JOizKiaPSbWsK6uhw7M5gZL9LW75fUHaSHwCI4/CKXgtJFbUTe48swvSn2RbSifEWzyw3i/H9hE3vUU+TdKBIJ0Vs4LltWkA0ZNwzLuuVKmTI2eYO2lcGvoltxtPJVynZ3e7sx/pXI8jlKFyu8TBjuKQR4uFk5g5Z7RvVYqVczo6RyxSTA/QlgtUjeUdB+jnT+NVrpLOWC1mNyActbAkblenFGY3uOZrt91gKLxjKW74Fbdf0+x07mmKAkClf79tJqMlgFfB2gUDS3XfFdWxR123xadQgXZLGvvXL/mEeKv/mprvbmee9OPCeXMnFdTsn1QfdqDXb1pxHF/2IRVSeJP4hDWgIk2u7z5svDcZE2G1vl1wH3LkKmjI91m6mL5+HTYR87sekuEBBu1TwJWqVBGpPrBBN7RfwlsoBW2pgN+I86BsvvMY1YeDA3+DDrI93M/3YCWm/QoPbo1aMBzCMzAvMtelylgP5HODqTpHR/XMtzC7DNeufOjv7VwMBhgLDqDhas+
+    home-secret-key: AgC/LxIVW0wBm+9ONiaoheWNRMIewJpLGYjoMg9CQcZHZU1j7L8SPBTLEHuT4C3ZFAJQ7vAEkeT+VBUK/g5qgecUj4tEK+4lY+oiTORljMir9iTEdlDw8pWVjxSDqqdUmXuHF4D1gRS+3DVWBl3KFc1Jv7NaobtYbxsa2oRdL1j083MjrGiB7Top+PM4gUolFETTBO7sGijSmVEdfmeYnJrzZ6K87P+4l03XR5aV5CJ4U9TLqGfMsQz7O2G5NkY8FhB9xOwYUWU0ZwGEFLmlk5J9mtKG40GNiuduOoYX7eExLOmYASnEJ1BWfHdUT2agbcV1kuXVTufHFOBKsKxMJ7v1gBuLnUkMGmNJe7GVx3VX2ba+/47Ut+7Q/5tEeBGyKGxKuqw876GBBCqCDxqihsgeo5wyRqJfEURqFnnf3gxLj5EGUW9pRjepBs+fC7NwQv0TZlisa9A2iIprkeE2F9q9R05q30VAIOKxExwCK0V86tql+yJofUAm8p5OPSYofGFCVxXTXEgz/mbBRrxZoRBH3fkz1UX6HfZuEJ5KOhyVqZbBbPSKUoUEdS8ZtR5pxdoXgi2unPr+jnk30nNtuKJ6Yz6fggIer9OnY4mZUiDwaWtaDDkqWH/iAcht9R4PL/mMbg2o2NCezsrERpE7CK5ktr/xFTgnQnVHBqbYVKR+oi1x+xrB1BbHcvVn16q22UX3kcTcu6Jqb6f+7QBVnV5gtAJqrxESYh0nO2I2DPKY5fSsBg7eD9ES
   template:
     metadata:
       creationTimestamp: null
       name: prod-route53-credentials
-      namespace: flux-system
+      namespace: cert-manager
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
