@@ -30,7 +30,7 @@ metadata:
   namespace: datadog
 spec:
   encryptedData:
-    apiKey: AgCZYRrKC9ImiRjIdGu78/qpdnLxI2F9A+zLFeyQDTomxy3ulv3wo0NpZ6NvDeJWXHOHATi1HA6uc8KsSoRMpCXU1K0eHya68Q34rYiImrCrhrrVGG9siaZo6tOGC0DeoqA1NZFYfBrK2Alnl4gmLhAPgsBvsEyPrZdBOyYBvonYJMLBBBBss9ivnmk0VQ0ycXpm+XfCRbJtTH+uj+/IThM6ybwv8q2v60QSxbYmtJ2+vbMAqbzeJLq9ewya1db6SEJ55j0XXY56wnYtp0zqbEaVe7TOEJulNfGTuSGkfHOzM5Gefo3Slv0cTcXSjp0WUHIdma6jbjHXAJAz7eSPjp+e8cNt7IVEYwJhixZG+cNLcCMRvtRT+vX2M1Oy3hP5BL41lJ5oiB5GFqvcKuN9WaqGoWoh7y10yYbdjqQ42h15FX9llHIyQhZWUt/Dc02fne3bI5QP2K/FJ6XZNATVtvh1XwnmYaa6Wmd+rV4jBsKqXe/ROA8jfaRzpYSr7gNyg2XVTDfHrcXI2hmirBJVp8KRgnW5/FGxjqMjzTpyxBMPVAAJADQyqTBKSw2S4mPzqMAGytUezbGrHsBPLRhjA5Yedz8oQaSfg5wDU5/s3eb16MTDFxmoarJanXK4gkAi+ga2yK84odJtY9yAnkdN6giYO1VXquqt5u1DlghQRcIdEU2Zqs1vQUKs/tw9MuRW9Vg6phxWVCgG+SAneJAw02h2yTTLMbLJspxTECyj2xcksg==
+    api-key: AgAEi02Ds0Zr1SX6VAHAn13fP8U2NKF78F0diMw836anBJL2WGHrp9P+k0EkGFaO7quCy1UPZO4Hbk1TpRMuCX8mkCc3B5lf+nwtZ3TF3RDYyBs6V4T9Jdv7eaemqWhQfMzqTFUH4QDflPA/0urhvqpq7hZKhRmdAUEQ8OLsCelNddHosHNhDkccOvYNzTuV/WRpXmnQuysZRWC5g1TjKfYDY5V2E7Kdtw6CIplDi/AL09cQbmNjSyYLTG9U/7NQMLx2R7/DsJ0BdrOktx+mc0xjHKt//vUxdubBlVzmaUu81wFBuz7woUiwpxwNdwszJgKLJKSrMuFO3M7MzhQoigvPr71v25Wg3Y0viqq4QprBjZSCqGdOiQxqMvmyXp/a6EopIgj1Yu3BnWJ8p5la7H0oKHSNuxwEZCRI/Y7se3Km04Dvrz5qJx9QfYkhElaMynHo6MpaMKH5htjg3V4eXTLCbEkI/ZbSvJ9UECn6b5Tk7SwgojtjIANhflG5GV2UEdzOVEz6bLk1Wm1WZkfPLGMzhxi4V6d+4G3zUBOHqWgvcsjoOVo+dnaUMrYolM/fwDMt6mzlT3shzsoNoVD85OIqNq7B7f3YjetvRRPHphriWM1BB+ZNBtQhiuv5zbixuJwaVxBRssSUs21b8IQ91/mxupeWjI3AgTrBlRWmQdWyWEuQrXO+En7ITWdHA23NvGMFMl4Kw51e+JyDXMG+ncIKV7PNT04Dwl8EleIMNdAqAg==
   template:
     metadata:
       creationTimestamp: null
@@ -54,9 +54,7 @@ spec:
   values:
     datadog:
       site: "datadoghq.eu"
-      apiKeyExistingSecret:
-        name: datadog
-        key: apiKey
+      apiKeyExistingSecret: datadog
       logs:
         enabled: true
         containerCollectAll: true
