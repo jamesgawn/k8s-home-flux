@@ -1,0 +1,65 @@
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: bfi-imax-new-film-notifier
+  namespace: default
+spec:
+  encryptedData:
+    AWS_ACCESS_KEY_ID: AgCZH/+74F4EGh0Onef1rPmMYOxARri2X9NVVd3iravxOXpljJPqGZ0Pv/QohTm0212Yy17r7WZ4gsxf55xaeKAyMcfEGu1lsCT3doNzfDpWTnX4XJKBq5u/wPX65liMr5dCA+UxnwRLqk54Q2Vg9hvjk9XDyP5V1KdqGLlHVR3JrMdhdidxena6BiJZdmDBIPd6H7ufrUTQOCrNxwzeMX8+6ghC8M+x+2sx5HE8WRZFNlqCDF9fXyyvxGkPfTaXss4mrZ9dPlSqNLdbfNoCp8i68O1CG8ty5gvt6ToWqpR1lHWZf0s6CJ80TB2pRmI1bBRmfSx4LuBTqIJg0Y3uULHmiGj9iaKat+sq6rH1jw9Oy8s9lVt5f1lzp77Pjm+RjXVGKy8HT6UVtM6NPJb92ezj1o16pb0vEkPX4NT3mGVGaItDHB3jh8NCuvIs2oR2eWId2cMBwN8ImYRZeT+eP7dvGpMY3dWViy4LbEL3EHsTXUGfQRuzqDPqtSzvt+BywwTHWf7hQxkXAhsiGJ0vag3RW5e+c7bV2LUhZmP2kQ7JHtG7Fu8BlCaAYTG+v4fyHz31hHcFUHP4ABpAXtyqqbzkVZCTa7oS0QqBYO9n5yHdHecufwZGpI+BdrfGdmOAo8aXAb4XaP6pNfI6oNOeRGxmgoAst4DPC8Sg5cZx60oaPhkC0iOLiWrOy+8s+OobpHfGKTmFZ93MZSQs75R+RDMCMSlZag==
+    AWS_SECRET_ACCESS_KEY: AgBujEUuPZnfCiriiqtKRA94PvFA84eKHCWBIcu86w6K7FdbdegPYQgW4wndWhEJ0qdP861VgqeCmNfV+oFEafRbTTwyjhixmUyzX/KNn6+Z4hVu34ZAk9GQq7NzLDJJVmGL3ZRbjy/IDTrIYZ4ywBbFCgjog9JnMAesauUwnx4Qvc0/RobkYej9Wg4Z2R2D0hISF6tVLfYGXt5E67IrDO78KVsyM4ABK6QpqeSrZ3oDa0LebHgivDWpWO26GWWSQgVfacLoGjCwywwytZBJR3oe673hq777Y/KvqQp0SzdiSpjdZBNMa9XKO0frxnecX9GeVr1EEJ9SZ9sGQyZoXPCouoUUf8WkrNOmwkAJBvdGwgW8nfZGr5wHAWPFlNrz2cCs25gNUBJFNQU9KcC/cRzh3HI0Sa6Kb1P4ECPATxWD+SCfgbeOE3t4fRMH2BxXz3RGKOZfbj6vIgKLHR8P7kUFIQPhQ+Xe+9wMI9/O2AFf668hAe5Px8Y19XlscOMZI3b6t+SrlNrVB1uKHt6woSYQzCqxoWVjbFneW9yynhvei0zq1hYnCKF15hE56gGSa6aG3D+VcXo1HQNyHDZA57l8cki3/MJ8B+y6EkteCJcOaKSX0FPIAhCFHCq9Akp64QVVcZZDNbXAJFXbyQUfU2W4geDDXqstQNWLZfxTVsVPcOL+YfES8/wlrh/1DMavhG+wkxgRWhRleSFxWuo7lkCCMt5Jgh2ZqW4HgXDR1RPyw1ho2SXPA5Jd
+    twitter_access_token_key: AgCqDsl7d7/nPdHJeJsqiox6OBt77yrZWLlc5Xh2xEGjV1SAWWHeURsadNl/jJQ6zF+PEevqqvWhXiv2WQ8fBJ136eU4RWYeWw0Ap/GAvqOfVkOhMTpJS8pWFA/7hFgQilwIzcAAWBdPxPC/Ex/sOu7Cl6I+8tRckq0GJe7mnGNGVG53xmqOlK9/s+NaJlXBfDD+atXcgDL+fcpXxCd+GvEsW9jZyGH2Cql4UBcJjzVvIAEev4DCk4jaVKkCM1GNbzUGqWJMO6qMjKRTGqQpU2B46QF3Ajs773sf3yeBF8bYd/tw0dX/SQaeJJDZrMbHsNLHLxFmoh1w1oIX4uKLZCuH7jIZ11givXJyILB1/8llL8I180+FCy0tbcJJjgf+uTgfOvvyKS7I9cUgEGrY2AcoEgt6J5JV0mShO5Tm849EUKuVSW9ZftuSJs3CCaHeHPMwS43iruV966EFYNjfS8uOToQNvJNQBOVVKdO8g3PC6kjXJwnDzAxllWeK6ZPr/7HyCt22bI6C4SvGp/TB4d0sdF2smYk7rlArQbHH3m+zhVsghOfm4gE82fG2DYBdXninnVM7I662YHXOZzrv89tcCFts4yHtknCMN/xJPsm0guxMYTLqE3KyB976L2j/4UyoNh3vWUax4pgwQWsPq8LlYAD1WeuWnnRapiNMDRYywi85F2O0qvkZxThbYqQ5EJTXBUKA73YW+uBfR1VXpkoYv8PiAJGdZ0JUkzsXrATk4v1w+/OlD6iu
+    twitter_access_token_secret: AgAeSP7ItY9p3iB9VoVy3QeSjXLOqqju7oORZoGDO1uAmdmqCGBsE3fOFLEhq3D5ObmVL9jggrAf2jr/Z114E6gnPR68qCDxSwNa2ROwi9EQ/7jeTiX2HfXnJDrHcZB7COPx83T0/ZrGzCVlGigYbTbsKoipXcaGWoemTSzu2tI4lf9skx9r5xzEDqWxFOV7Ev0y7RpwyTSAosMsiQ5C8bxTPH0okTDyEhN52sxa8r3I0umVste+JBhCOc7ZEr/i5rVd2FbHDri1uhzUBpPM11+w7ghflVpnm38TwRNSQ/3rViK5PSBit+VxX/jcBdNXKmeSQKiuUGbrAp5YAiOsF3SPbiuTQ1L9K15Gz26zRXCYhIG5OagxspZaYE/QafTOpI3qJI+HPptmTpzecbUkBzmUVNjNbdTdjVCRuJzgEaw/itX+RBmIEqqFNewkkl6wRMnVvNhytMnSaFP/vWEx2gjZIHg++hvtRlxnCPYtmhfpWxTOsbFGllppWpbvD+0iRwnIWHDZGtm/Qzv/aRIulVaRyS5DevF4xtn/POhSQ6Bd6BtCaLKBOh9SJ44T9d2J4VMzFrOZEMMf1tD5gG4MzFRzUxvZPibWKgMxTzTMbit7Qvyn5uIvZ/L7iDbjtcvKcUJEXQgV9Gq7Sf2aeeLgQghFXvRa8gO82OTqV3SzhQJckIWsvEqeC2h8tluuncPGtgpXYMw6GSxUMySexGZjMKaCVeyOWZS7veSRgt4ZSOAQ/LVYA/fluNCg1ne9euk=
+    twitter_consumer_key: AgAzTiJf6Bj2wCQ/z+eCct/m+deAjIX7PQeJR7QieEiMz+tESz0p9778nB0mGG4msZx0Er9CCeP3nA2Cxz3RiJp2r4Ylt4Da6Vq4oP9BGdwNbo7x2v20WrbDUnE5NHPhD8Jo1JI7VHIlmIE3kIMd7eX5V6QtUMOA39XPl1obihDHWgI9tQSQzFr10xrFScnxY+RdxKpPQyff6PwH8throyrJWnELrFUvt/m0p3kLCRWjNRqtW3Bc/3y1Aw+5yYGr8IS/tThnQdpK1wQRHKWFiWOnnqDdqX/5zXIv+LDpZO15YuoCu0Fx5bL6doU3q22myJNCsW5GtcKTS/HSCfpJovyWE7Udm8d0jJjkRQ5nQbUcUQkCOAKml1wyK8L7PqeXbRZI9x64hpIVRXpgwWQSD8IGcybloBts4Z7kQ84yvgpzqWSwoAPt8Vy2YixQrGB9akC24zMbWOh4ancsHasCy9NprQl9v4EuYfmLjwdXYeVnQNDx+q7modoWSmmAF+Wo6LP0WUNgajlssa/qqIg2tdw+NS8Qw4449RhPLef/dLb53pD13WnlGjtH71pUhfjto5+W4JlAsj/zTRODtGUZRL9Itet5IrWZYXhqRVD8/Ymouei53PT0dwUNGlnhUx1I1HK6whhvrsvJ8NkF+iZPx3ljdpZPXNh5/8PbQ52IZWgPiCHirb3rSBV/OFUFAQid2VSI5bNKTywfKrZ0b5rckZ1TL8l3WBltINbN
+    twitter_consumer_secret: AgB55I6BIV5nS25kH7W99HFr8syVvQB+QTWjYzeGxbhQJrng9OCDI/+0q3q9P+ZEZfnWIEwglNwKupLNoRjEMfocssHTw1g3ufafS1V0s4x7bm8+Rl1RCHKmR9u6L58p4er7vCHhur+AyU5O7veRFQ1B3AelPyDonT9umMvEuMV8So8OwgwV10qbVTOthN3IoApktxarmU5fMp7nRaWf5iIeDlO2ZOxd5gDTPd7gsz/ZfEuALsx1pHaHKrYuDo8vkpx1q7LkhNow4+rURhEoSg4ft+BRfN7rs7tHR1Muy6OasR5pGrSPlEkcKQOgVoRiyQI/4qHorb8UDaWM6GZVBRBm/mhxb+UvfSzkJqytz68nNf2CNiBxgonG9N8FqvvO2UvyJc3gkNw3nyS9q8dA7uByNEt1bQyBnccbItJVQT0oEIuU3Z6sQkH47FR4uyfxVXlev5t/6W91aOzsKtShMH0bmG3zy0mdL+6vxXWEhK3CZeaX6mGnIFhe2JzaznBFBwE/vZk7oQWE8tpnodSPS//cqkKspuVx3AHd5BWWUoVfBD+dU2BuiRE/ulkA/TT2Y9AdYDzQCfPoqF17ZwOUqVTpSFIdF/lcy1VySCq7Bz1TkKQaNUvJNYhdZZC3EC5wJD/vfRHnwFBlHYTk2lF0r98gmLQctqc5ssi4qB4PD7ORxLo/LUUuZmDPw2zlrJGwuQKUDkjQIzZYq69gNHOww8Kcp5doTj5huy+vn7EySlTPwNuRw/ZmCUUvUoMgJxw49xklVQ==
+  template:
+    metadata:
+      creationTimestamp: null
+      name: bfi-imax-new-film-notifier
+      namespace: default
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: bfi-imax-new-film-notifier
+spec:
+  schedule: "*/15 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: ddns-job
+            image: ghcr.io/jamesgawn/bfi-imax-new-film-notifier:1.0.3 # {"$imagepolicy": "default:ddns-job"}
+            env:
+            - name: dynamodb_table_name
+              value: bfi-imax-film-notifier
+            - name: dry_run
+              value: true
+            - name: film_look_forward_days
+              value: 30
+            - name: AWS_REGION
+              value: "eu-west-2"
+            envFrom:
+            - secretRef:
+                name: bfi-imax-new-film-notifier
+          restartPolicy: Never
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImageRepository
+metadata:
+  name: ddns-job
+spec:
+  image: ghcr.io/jamesgawn/ddns-job
+  interval: 5m0s
+---
+apiVersion: image.toolkit.fluxcd.io/v1alpha1
+kind: ImagePolicy
+metadata:
+  name: ddns-job
+spec:
+  imageRepositoryRef:
+    name: ddns-job
+  policy:
+    semver:
+      range: x.x.x

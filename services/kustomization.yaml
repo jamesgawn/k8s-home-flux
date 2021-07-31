@@ -2,4 +2,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - helloworld.yaml
-- ddns-job.yaml
+- bfi-imax-new-film-notifier.yaml
+#- ddns-job.yaml
