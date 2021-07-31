@@ -71,8 +71,8 @@ flux bootstrap github --personal --repository=k8s-home --owner=jamesgawn --read-
 kubectl -n default create secret generic example-secret \
 --from-literal=key1=value1 \
 --from-literal=key2=value2 \
---dry-run \
--o yaml > basic-auth.yaml
+--dry-run=client \
+-o yaml > example-secret.yaml
 ```
 2. Secure it using public key
 ```bash
