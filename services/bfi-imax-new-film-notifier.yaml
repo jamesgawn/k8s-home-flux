@@ -29,7 +29,7 @@ spec:
       template:
         spec:
           containers:
-          - name: ddns-job
+          - name: bfi-imax-new-film-notifier
             image: ghcr.io/jamesgawn/bfi-imax-new-film-notifier:1.0.3 # {"$imagepolicy": "default:ddns-job"}
             env:
             - name: dynamodb_table_name
@@ -48,18 +48,18 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1alpha1
 kind: ImageRepository
 metadata:
-  name: ddns-job
+  name: bfi-imax-new-film-notifier
 spec:
-  image: ghcr.io/jamesgawn/ddns-job
+  image: ghcr.io/jamesgawn/bfi-imax-new-film-notifier
   interval: 5m0s
 ---
 apiVersion: image.toolkit.fluxcd.io/v1alpha1
 kind: ImagePolicy
 metadata:
-  name: ddns-job
+  name: bfi-imax-new-film-notifier
 spec:
   imageRepositoryRef:
-    name: ddns-job
+    name: bfi-imax-new-film-notifier
   policy:
     semver:
       range: x.x.x
