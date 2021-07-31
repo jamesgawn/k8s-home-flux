@@ -33,11 +33,11 @@ spec:
             image: ghcr.io/jamesgawn/bfi-imax-new-film-notifier:1.0.3 # {"$imagepolicy": "default:ddns-job"}
             env:
             - name: dynamodb_table_name
-              value: bfi-imax-film-notifier
+              value: "bfi-imax-film-notifier"
             - name: dry_run
-              value: true
+              value: "true"
             - name: film_look_forward_days
-              value: 30
+              value: "30"
             - name: AWS_REGION
               value: "eu-west-2"
             envFrom:
