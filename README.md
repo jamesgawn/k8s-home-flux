@@ -33,6 +33,16 @@ microk8s status --wait-ready
 microk8s enable dns storage ingress helm3 metrics-server
 ```
 
+6. Install helm
+```bash 
+sudo snap install helm
+```
+
+7. Download kubectl config
+```bash
+microk8s config > ~/.kube/config ; chmod 600 ~/.kube/config
+```
+
 ### _Optional:_ Adding additional nodes
 
 1. Login to your first Raspberry PI
@@ -48,19 +58,30 @@ microk8s add-node
 
 5. Fin
 
-### Enable gitops integration via flux
+### Add sealed secrets operator
 _These steps assume you have already configured your .kube/config file to allow access to the cluster via the kubectl CLI._
-0. Install flux CLI
-```bash 
-curl -s https://toolkit.fluxcd.io/install.sh | sudo 
-```
-1. Set github personal access token (with all repo permissions):
+
+0. Add sealed secrets repo
 ```bash
-export GITHUB_TOKEN=INSERT_TOKEN_HERE
+helm repo add sealed-secrets https://bitnami-labs.github.io/sealed-secrets
 ```
-2. Configure cluster
+1. Install sealed secrets 
 ```bash
-flux bootstrap github --personal --repository=k8s-home --owner=jamesgawn --read-write-key --personal --components-extra=image-reflector-controller,image-automation-controller
+helm install sealed-secrets -n kube-system sealed-secrets/sealed-secrets
+```
+
+### Enable gitops integration via argocd
+_These steps assume you have already configured your .kube/config file to allow access to the cluster via the kubectl CLI._
+
+1. Install argocd
+```bash
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+
+2. Expose UI via a service
+```bash
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 ```
 
 ## How to
