@@ -84,6 +84,13 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 ```
 
+3. Obtain the admin password to login to Argo CD portal
+```bash
+kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath='{.data.password}' | base64 --decode ; echo
+```
+
+4. Login to portal
+
 ## How to
 ### How to generate a new sealed secret
 
