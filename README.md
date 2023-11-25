@@ -89,13 +89,17 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 ```bash
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
 ```
+Or alternatively use port-forward on your machine to temporarily provide access:
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
 
 3. Obtain the admin password to login to Argo CD portal
 ```bash
 kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath='{.data.password}' | base64 --decode ; echo
 ```
 
-4. Login to portal
+4. Login to portal. If you've forwarded the port it should be available at https://localhost:8080.
 
 ## How to
 ### How to generate a new sealed secret
