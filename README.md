@@ -8,7 +8,7 @@ The repository for the flux configuration of my home kubernetes cluster.
 
 1. Login to your Raspberry PI
 ```bash
-sudo sed -i '$ s/$/ cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1 swapaccount=1/' /boot/firmware/cmdline.txt
+sudo sed -i '$ s/$/ cgroup_enable=memory cgroup_memory=1 swapaccount=1/' /boot/firmware/cmdline.txt
 ```
 
 2. Install Microk8s
@@ -30,15 +30,21 @@ microk8s status --wait-ready
 
 5. Enable useful services 
 ```bash
-microk8s enable dns storage ingress helm3 metrics-server
+microk8s enable ingress 
+microk8s enable metrics-server
 ```
 
-6. Install helm
+7. Install kubectl cli
 ```bash 
-sudo snap install helm
+sudo snap install kubectl --classic
 ```
 
-7. Download kubectl config
+8. Install helm cli
+```bash 
+sudo snap install helm --classic
+```
+
+9. Download kubectl config --classic
 ```bash
 microk8s config > ~/.kube/config ; chmod 600 ~/.kube/config
 ```
